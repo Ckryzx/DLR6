@@ -5,7 +5,6 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
-    // Agregar una pizza al carrito
     const addToCart = (pizza) => {
         setCart((prevCart) => {
             const existingPizza = prevCart.find((p) => p.id === pizza.id);
@@ -19,7 +18,6 @@ export const CartProvider = ({ children }) => {
         });
     };
 
-    // Eliminar una pizza del carrito
     const removeFromCart = (id) => {
         setCart((prevCart) =>
             prevCart
@@ -28,7 +26,6 @@ export const CartProvider = ({ children }) => {
         );
     };
 
-    // Obtener el total del carrito
     const totalCartPrice = cart.reduce((acc, item) => acc + item.price * item.count, 0);
 
     return (
